@@ -1,4 +1,4 @@
-#include <SFML/Graphics.hpp>
+п»ї#include <SFML/Graphics.hpp>
 #include <iostream>
 #include "settings.h"
 using namespace sf;
@@ -20,23 +20,23 @@ int main()
 	rect1.setPosition(size - Bat_Ofset - ax, size / 2 - ay / 2);
 	circle.setPosition(size / 2 - r, size / 2 - r);
 
-	// Объект, который, собственно, является главным окном приложения
+	// РћР±СЉРµРєС‚, РєРѕС‚РѕСЂС‹Р№, СЃРѕР±СЃС‚РІРµРЅРЅРѕ, СЏРІР»СЏРµС‚СЃСЏ РіР»Р°РІРЅС‹Рј РѕРєРЅРѕРј РїСЂРёР»РѕР¶РµРЅРёСЏ
 	RenderWindow window(VideoMode(size, size), "SFML Works!");
 	window.setFramerateLimit(FPS);
 
-	// Главный цикл приложения. Выполняется, пока открыто окно
+	// Р“Р»Р°РІРЅС‹Р№ С†РёРєР» РїСЂРёР»РѕР¶РµРЅРёСЏ. Р’С‹РїРѕР»РЅСЏРµС‚СЃСЏ, РїРѕРєР° РѕС‚РєСЂС‹С‚Рѕ РѕРєРЅРѕ
 	while (window.isOpen())
 	{
-		// Обрабатываем очередь событий в цикле
+		// РћР±СЂР°Р±Р°С‚С‹РІР°РµРј РѕС‡РµСЂРµРґСЊ СЃРѕР±С‹С‚РёР№ РІ С†РёРєР»Рµ
 		Event event;
 		while (window.pollEvent(event))
 		{
-			// Пользователь нажал на «крестик» и хочет закрыть окно?
+			// РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ РЅР°Р¶Р°Р» РЅР° В«РєСЂРµСЃС‚РёРєВ» Рё С…РѕС‡РµС‚ Р·Р°РєСЂС‹С‚СЊ РѕРєРЅРѕ?
 			if (event.type == Event::Closed)
-				// тогда закрываем его
+				// С‚РѕРіРґР° Р·Р°РєСЂС‹РІР°РµРј РµРіРѕ
 				window.close();
 		}
-		//обновление объектов игры
+		//РѕР±РЅРѕРІР»РµРЅРёРµ РѕР±СЉРµРєС‚РѕРІ РёРіСЂС‹
 
 		circle.move(speedx, speedy);
 		if (circle.getPosition().x + 2 * r > size ||
@@ -48,15 +48,15 @@ int main()
 			circle.getPosition().y < 0) {
 			speedy = -speedy;
 		}
-		//двигаем ракетки
-		//правая
+		//РґРІРёРіР°РµРј СЂР°РєРµС‚РєРё
+		//РїСЂР°РІР°СЏ
 		if (Keyboard::isKeyPressed(Keyboard::Up)) {
 			rect1.move(0, -BatDy);
 		}
 		if (Keyboard::isKeyPressed(Keyboard::Down)) {
 			rect1.move(0, BatDy);
 		}
-		//левая
+		//Р»РµРІР°СЏ
 		if (Keyboard::isKeyPressed(Keyboard::W)) {
 			rect.move(0, -BatDy);
 		}
@@ -64,8 +64,8 @@ int main()
 			rect.move(0, BatDy);
 		}
 
-		//границы ракетки
-		//левая
+		//РіСЂР°РЅРёС†С‹ СЂР°РєРµС‚РєРё
+		//Р»РµРІР°СЏ
 		if (rect.getPosition().y + ay > size){
 			rect.move(0, -BatDy);
 		}
@@ -73,7 +73,7 @@ int main()
 			rect.move(0, BatDy);
 		}
 
-		//правая
+		//РїСЂР°РІР°СЏ
 		if (rect1.getPosition().y + ay > size) {
 			rect1.move(0, -BatDy);
 		}
@@ -81,7 +81,7 @@ int main()
 			rect1.move(0, BatDy);
 		}
 
-		// Отрисовка объектов и окна 
+		// РћС‚СЂРёСЃРѕРІРєР° РѕР±СЉРµРєС‚РѕРІ Рё РѕРєРЅР° 
 		window.clear();
 		window.draw(rect);
 		window.draw(rect1);
